@@ -108,7 +108,8 @@ def import_palette(palette_name='viridis', N=16):
         print('invalid palette name or number of colors')
         raise ValueError('invalid palette name or number of colors')
     lut = cmap(X=range(N))
-    colors = vtk.vtkColorSeries(number_of_colors=N)
+    colors = vtk.vtkColorSeries()
+    colors.SetNumberOfColors(N)
     # print('import color map with {} colors'.format(N))
     for i in range(N):
         rgba = lut[i]
